@@ -1,11 +1,13 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
-var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 var del = require('del');
 
 var cssnano = require('gulp-cssnano');
 var uglify = require('gulp-uglify');
+var imagemin = require('gulp-imagemin');
+
+var ghPages = require('gulp-gh-pages');
 
 var cssFolders = [
   {src: 'src/css/*.css', dest: 'dist/css'},
@@ -61,7 +63,7 @@ gulp.task('images', function() {
 gulp.task('browserSync', function() {
   browserSync.init({
     server: {
-      baseDir: 'dist'
+      baseDir: 'src'
     },
   });
 });
@@ -77,5 +79,10 @@ gulp.task('clean', function() {
 });
 
 gulp.task('build', ['css', 'js', 'html', 'images']);
+
+gulp.task('deploy', function() {
+  return gulp.src('dist/**/*')
+    .pipe(ghPages());
+});
 
 gulp.task('default', ['watch']);
