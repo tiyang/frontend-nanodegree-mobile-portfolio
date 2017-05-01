@@ -12,4 +12,7 @@ Optimizations for `index.html` include:
 - Optimize the image sizes
 
 ### views/js/main.js
+Optimizations for the pizza page's main.js:
+
+- Near line 506, move the read to the `scrollTop` out of the loop. This will prevent reflow in loop, and make the scroll animation smooth.
 

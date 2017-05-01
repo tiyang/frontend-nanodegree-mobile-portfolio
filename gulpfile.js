@@ -16,7 +16,7 @@ var cssFolders = [
 
 var jsFolders = [
   {src: 'src/js/*.js', dest: 'dist/js'},
-  {src: 'src/views/*js', dest: 'dist/views/js'},
+  {src: 'src/views/js/*.js', dest: 'dist/views/js'},
 ];
 
 var htmlFolders = [
