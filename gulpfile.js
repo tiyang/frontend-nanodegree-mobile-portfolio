@@ -1,13 +1,11 @@
 var gulp = require('gulp');
-var browserSync = require('browser-sync').create();
-var cache = require('gulp-cache');
-var del = require('del');
-
 var cssnano = require('gulp-cssnano');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
-
 var ghPages = require('gulp-gh-pages');
+
+var browserSync = require('browser-sync').create();
+var del = require('del');
 
 var cssFolders = [
   {src: 'src/css/*.css', dest: 'dist/css'},
@@ -29,6 +27,8 @@ var imgFolders = [
   {src: 'src/views/images/*', dest: 'dist/views/images'},
 ]
 
+
+// Build tasks
 gulp.task('css', function() {
   return cssFolders.map(function(folder) {
     return gulp.src(folder.src)
@@ -60,6 +60,14 @@ gulp.task('images', function() {
   })
 });
 
+gulp.task('clean', function() {
+  return del('dist');
+});
+
+gulp.task('build', ['css', 'js', 'html', 'images']);
+
+
+// Development tasks
 gulp.task('browserSync', function() {
   browserSync.init({
     server: {
@@ -74,15 +82,12 @@ gulp.task('watch', ['browserSync'], function() {
   gulp.watch('src/js/**/*.js', browserSync.reload);
 });
 
-gulp.task('clean', function() {
-  return del('dist');
-});
+gulp.task('default', ['watch']);
 
-gulp.task('build', ['css', 'js', 'html', 'images']);
 
+// Deploy the dist to the github pages
 gulp.task('deploy', function() {
   return gulp.src('dist/**/*')
     .pipe(ghPages());
 });
 
-gulp.task('default', ['watch']);
