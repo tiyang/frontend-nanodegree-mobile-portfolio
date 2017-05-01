@@ -31,7 +31,7 @@ Optimizations for the pizza page's main.js:
 - Remove the useless `determinDx` function; optimize `changePizzaSizes` function.
 
 ## Test the optimized pages
-The optimized project has been deploy to [https://tiyang.github.io/udportfolio/](https://tiyang.github.io/udportfolio/).
+The optimized project has been deployed to [https://tiyang.github.io/udportfolio/](https://tiyang.github.io/udportfolio/).
 
 You can test the speed on [https://developers.google.com/speed/pagespeed/insights/](https://developers.google.com/speed/pagespeed/insights/).
 
