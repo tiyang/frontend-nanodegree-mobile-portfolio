@@ -421,7 +421,7 @@ var resizePizzas = function(size) {
 
   changeSliderLabel(size);
 
-  // Iterates through pizza elements on the page and changes their widths
+  // Instead of using offsetWidth to calculate the new width, simply using percentage to change width
   function changePizzaSizes(size) {
     var randomPizzas = document.querySelectorAll(".randomPizzaContainer");
     var newwidth;
