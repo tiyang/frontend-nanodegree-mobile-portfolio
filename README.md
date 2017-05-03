@@ -1,8 +1,8 @@
 # Website Performance Optimization portfolio project
 
 ## How to run
-### Setup
-Run `npm install` to install the dependent packages.
+
+Run `npm install` to install the dependent packages. Then open the `index.html` file in src folder to view the main page.
 
 ### Develop
 Run `gulp` to start up a server, and a liveload browser will automatically open.
