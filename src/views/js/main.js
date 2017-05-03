@@ -423,7 +423,7 @@ var resizePizzas = function(size) {
 
   // Instead of using offsetWidth to calculate the new width, simply using percentage to change width
   function changePizzaSizes(size) {
-    var randomPizzas = document.querySelectorAll(".randomPizzaContainer");
+    var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
     var newwidth;
     switch(size) {
       case "1":
@@ -516,10 +516,9 @@ window.addEventListener('scroll', updatePositions);
 // Generates the sliding pizzas when the page loads.
 document.addEventListener('DOMContentLoaded', function() {
   var innerHeight = window.innerHeight;
-  var innerWidth = window.innerWidth;
   var s = 256;
-  var cols = Math.floor(innerWidth / s);
-  var rows = Math.floor(innerHeight / 100);
+  var cols = 8;
+  var rows = Math.floor(innerHeight / s) + 1;
 
   for (var i = 0; i < (cols * rows); i++) {
     var elem = document.createElement('img');
